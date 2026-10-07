@@ -437,7 +437,7 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
   /* Para agregar una publicación: copia una línea, cambia el título, la imagen (ej. 'img/carta1.jpg') y el enlace. */
   var POSTS = [
     { cat: 'hobby',  title: 'Venta récord: Rafael Mosquera', img: 'img/mosquera-record.jpg', link: 'https://www.instagram.com/p/DdqM5NLkYp7/', desc: 'Venta récord de $2,500 por la 1/1 autografiada con parche de debut en la MLS.' },
-    { cat: 'hobby',  title: 'Publicación de hobby 2', img: '', link: IG, desc: 'Contenido de hobby en Instagram.' },
+    { cat: 'hobby',  title: 'Mira, papá, soy Cristiano', img: 'img/meme-soy-cristiano.jpg', fit: 'contain', bg: '#FEFEFC', link: 'https://www.instagram.com/p/DdS3mdzkUSP/', desc: 'Meme de Swaptty: Barbie y Cristiano Ronaldo.' },
     { cat: 'hobby',  title: 'Publicación de hobby 3', img: '', link: IG, desc: 'Contenido de hobby en Instagram.' },
     { cat: 'hobby',  title: 'Publicación de hobby 4', img: '', link: IG, desc: 'Contenido de hobby en Instagram.' },
     { cat: 'diseno', title: 'Proyectos de diseño', img: '', link: BE, desc: 'Mis proyectos de diseño en Behance.' },
@@ -450,7 +450,7 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
   var current = 'todo';
 
   function face(p) {
-    if (p.img) { return '<img src="' + p.img + '" alt="' + p.title + '">'; }
+    if (p.img) { return '<img src="' + p.img + '" alt="' + p.title + '" style="object-fit:' + (p.fit || 'cover') + '">'; }
     return '<div class="ph">' + ICON + '<span>' + (p.cat === 'hobby' ? 'Hobby' : p.cat === 'diseno' ? 'Diseño' : 'Foto y video') + '</span></div>';
   }
 
@@ -459,7 +459,7 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
     POSTS.forEach(function (p, i) {
       if (current !== 'todo' && p.cat !== current) { return; }
       html += '<button class="card" type="button" data-i="' + i + '">' +
-        '<span class="face">' + face(p) + '</span>' +
+        '<span class="face"' + (p.bg ? ' style="background:' + p.bg + '"' : '') + '>' + face(p) + '</span>' +
         '<span class="name">' + p.title + '</span>' +
         '<span class="tag mono">' + TAGS[p.cat] + '</span></button>';
     });
@@ -468,7 +468,9 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
 
   function openPost(i) {
     var p = POSTS[i];
-    document.getElementById('v-face').innerHTML = face(p);
+    var vf = document.getElementById('v-face');
+    vf.innerHTML = face(p);
+    if (p.bg) { vf.setAttribute('style', 'background:' + p.bg); } else { vf.removeAttribute('style'); }
     document.getElementById('v-tag').textContent = TAGS[p.cat];
     document.getElementById('v-title').textContent = p.title;
     document.getElementById('v-desc').textContent = p.desc;
