@@ -214,7 +214,9 @@ h1 { font-size: clamp(46px, 8vw, 84px); line-height: 1; font-weight: 800; letter
 .pop-text { display: flex; flex-direction: column; gap: 20px; }
 .pop-text p { font-size: clamp(19px, 2.4vw, 22px); line-height: 1.55; max-width: 28ch; }
 .pop-card { display: flex; flex-direction: column; align-items: flex-start; gap: 28px; padding: clamp(28px, 4vw, 48px); border-radius: 28px; background: var(--surface); border: 1px solid var(--line); }
-.pop-num { font-size: clamp(52px, 9vw, 88px); line-height: 1; font-weight: 800; letter-spacing: -0.04em; color: var(--accent-text); }
+.pop-logo { font-size: 0; line-height: 0; }
+.pop-logo img { width: min(100%, 340px); height: auto; }
+.pop-num { font-size: clamp(64px, 10vw, 104px); line-height: 1; font-weight: 800; letter-spacing: -0.04em; color: var(--accent-text); font-variant-numeric: tabular-nums; }
 .pop-label { color: var(--muted); margin-top: 8px; }
 
 /* Contacto */
@@ -395,18 +397,13 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
     <div class="wrap">
       <div class="pop">
         <div class="pop-text">
-          <h2>Hobby Pop</h2>
-          <p>Mi marca de comunidad de hobby. Una comunidad de coleccionismo muy activa, con clientes reales.</p>
+          <h2 class="pop-logo"><img src="hobbypop.png" alt="Hobby Pop" width="720" height="634"></h2>
+          <p>Mi marca de comunidad de hobby: una comunidad de coleccionismo muy activa, con clientes reales.</p>
         </div>
         <div class="pop-card">
           <div>
-            <div class="pop-num">Casi 400</div>
+            <div class="pop-num" id="pop-num" aria-label="393 miembros">393</div>
             <div class="mono pop-label">miembros</div>
-          </div>
-          <div class="chips">
-            <span class="chip">Coleccionismo</span>
-            <span class="chip">Clientes reales</span>
-            <span class="chip">Muy activa</span>
           </div>
           <a class="btn btn-solid" href="https://chat.whatsapp.com/JCmGns5Va6NEV4vSlyOfck" target="_blank" rel="noopener noreferrer">Unirme a la comunidad</a>
         </div>
@@ -545,6 +542,30 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
     var r = document.createRange(); r.selectNodeContents(el);
     var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
     b.textContent = 'Seleccionado';
+  }
+
+  /* Contador de miembros de Hobby Pop: sube de 0 a 393 cuando la sección entra en pantalla. */
+  var num = document.getElementById('pop-num');
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (num && 'IntersectionObserver' in window && !reduce) {
+    var TARGET = 393, started = false;
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (!e.isIntersecting || started) { return; }
+        started = true;
+        io.disconnect();
+        var t0 = null, dur = 1800;
+        num.textContent = '0';
+        var step = function (ts) {
+          if (t0 === null) { t0 = ts; }
+          var k = Math.min((ts - t0) / dur, 1);
+          num.textContent = String(Math.round(TARGET * (1 - Math.pow(1 - k, 3))));
+          if (k < 1) { requestAnimationFrame(step); } else { num.textContent = String(TARGET); }
+        };
+        requestAnimationFrame(step);
+      });
+    }, { threshold: 0.6 });
+    io.observe(num);
   }
 
   render();
