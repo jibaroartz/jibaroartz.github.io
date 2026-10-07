@@ -208,6 +208,15 @@ h1 { font-size: clamp(46px, 8vw, 84px); line-height: 1; font-weight: 800; letter
 .close { position: absolute; top: 16px; right: 16px; width: 48px; height: 48px; border-radius: 50%; border: 0; background: var(--tint); color: var(--ink); font-size: 24px; line-height: 1; cursor: pointer; }
 .close:hover { background: var(--accent); color: var(--accent-ink); }
 
+/* Hobby Pop */
+.pop { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(36px, 6vw, 80px); align-items: center; }
+.pop > * { min-width: 0; }
+.pop-text { display: flex; flex-direction: column; gap: 20px; }
+.pop-text p { font-size: clamp(19px, 2.4vw, 22px); line-height: 1.55; max-width: 28ch; }
+.pop-card { display: flex; flex-direction: column; align-items: flex-start; gap: 28px; padding: clamp(28px, 4vw, 48px); border-radius: 28px; background: var(--surface); border: 1px solid var(--line); }
+.pop-num { font-size: clamp(52px, 9vw, 88px); line-height: 1; font-weight: 800; letter-spacing: -0.04em; color: var(--accent-text); }
+.pop-label { color: var(--muted); margin-top: 8px; }
+
 /* Contacto */
 .contact { background: var(--deep); color: var(--deep-ink); border-radius: 36px; padding: clamp(36px, 6vw, 80px); display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); gap: clamp(36px, 6vw, 80px); align-items: center; }
 .contact > * { min-width: 0; }
@@ -230,7 +239,7 @@ footer { padding-block: 72px 56px; color: var(--muted); font-size: 14px; }
 footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; }
 
 @media (max-width: 860px) {
-  .hero-grid, .about-grid, .contact, .skills { grid-template-columns: minmax(0, 1fr); }
+  .hero-grid, .about-grid, .contact, .skills, .pop { grid-template-columns: minmax(0, 1fr); }
   .hero-grid { gap: 48px; }
   .photo { order: -1; max-width: 260px; justify-self: start; }
   .job { grid-template-columns: minmax(0, 1fr); gap: 8px; padding-block: 28px; }
@@ -301,6 +310,7 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
             <h3 class="mono">Estudios</h3>
             <div class="study"><strong>Licenciatura en Publicidad con Diseño Gráfico</strong><span>UIP · 2014</span></div>
             <div class="study"><strong>Posgrado en Docencia Superior</strong><span>UIP · 2018</span></div>
+            <div class="study"><strong>Diversos cursos y diplomados</strong><span>Fotografía, video e inteligencia artificial</span></div>
           </div>
           <div>
             <h3 class="mono">Especialidad</h3>
@@ -378,6 +388,29 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
         </div>
       </div>
       <div class="grid" id="grid"></div>
+    </div>
+  </section>
+
+  <section id="hobbypop">
+    <div class="wrap">
+      <div class="pop">
+        <div class="pop-text">
+          <h2>Hobby Pop</h2>
+          <p>Mi marca de comunidad de hobby. Una comunidad de coleccionismo muy activa, con clientes reales.</p>
+        </div>
+        <div class="pop-card">
+          <div>
+            <div class="pop-num">Casi 400</div>
+            <div class="mono pop-label">miembros</div>
+          </div>
+          <div class="chips">
+            <span class="chip">Coleccionismo</span>
+            <span class="chip">Clientes reales</span>
+            <span class="chip">Muy activa</span>
+          </div>
+          <a class="btn btn-solid" href="https://chat.whatsapp.com/JCmGns5Va6NEV4vSlyOfck" target="_blank" rel="noopener noreferrer">Unirme a la comunidad</a>
+        </div>
+      </div>
     </div>
   </section>
 
