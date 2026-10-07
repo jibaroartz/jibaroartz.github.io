@@ -215,7 +215,7 @@ h1 { font-size: clamp(46px, 8vw, 84px); line-height: 1; font-weight: 800; letter
 .pop-text p { font-size: clamp(19px, 2.4vw, 22px); line-height: 1.55; max-width: 28ch; }
 .pop-card { display: flex; flex-direction: column; align-items: flex-start; gap: 28px; padding: clamp(28px, 4vw, 48px); border-radius: 28px; background: var(--surface); border: 1px solid var(--line); }
 .pop-logo { font-size: 0; line-height: 0; }
-.pop-logo img { width: min(100%, 340px); height: auto; }
+.pop-logo img { width: min(100%, 220px); height: auto; }
 .pop-num { font-size: clamp(64px, 10vw, 104px); line-height: 1; font-weight: 800; letter-spacing: -0.04em; color: var(--accent-text); font-variant-numeric: tabular-nums; }
 .pop-label { color: var(--muted); margin-top: 8px; }
 
@@ -398,12 +398,17 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
       <div class="pop">
         <div class="pop-text">
           <h2 class="pop-logo"><img src="hobbypop.png" alt="Hobby Pop" width="720" height="634"></h2>
-          <p>Mi marca de comunidad de hobby: una comunidad de coleccionismo muy activa, con clientes reales.</p>
+          <p>Mi marca de comunidad de hobby.</p>
         </div>
         <div class="pop-card">
           <div>
             <div class="pop-num" id="pop-num" aria-label="393 miembros">393</div>
             <div class="mono pop-label">miembros</div>
+          </div>
+          <div class="chips">
+            <span class="chip">Comunidad de coleccionismo</span>
+            <span class="chip">Muy activa</span>
+            <span class="chip">Clientes reales</span>
           </div>
           <a class="btn btn-solid" href="https://chat.whatsapp.com/JCmGns5Va6NEV4vSlyOfck" target="_blank" rel="noopener noreferrer">Unirme a la comunidad</a>
         </div>
