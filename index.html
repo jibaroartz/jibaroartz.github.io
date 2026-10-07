@@ -8,7 +8,13 @@
 <meta property="og:title" content="Jibaro · Luis Quintero">
 <meta property="og:description" content="Diseñador, gerente de tiendas y experto en coleccionismo. Hoja de vida y portafolio.">
 <meta property="og:type" content="website">
-<link rel="icon" href="foto.png">
+<meta property="og:url" content="https://jibaroartz.github.io/">
+<meta property="og:image" content="https://jibaroartz.github.io/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://jibaroartz.github.io/og-image.jpg">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap">
@@ -100,7 +106,7 @@ h2 { font-size: clamp(32px, 5vw, 48px); line-height: 1.1; font-weight: 800; lett
 }
 .top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding-block: 16px; }
 .brand { display: flex; align-items: center; gap: 14px; font-weight: 800; font-size: 18px; color: var(--ink); text-decoration: none; letter-spacing: -0.01em; }
-.brand img { width: 44px; height: 44px; border-radius: 13px; }
+.brand .mark { flex: none; width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center; background: var(--accent); color: var(--accent-ink); font-size: 24px; font-weight: 800; line-height: 1; letter-spacing: -0.04em; }
 .nav { display: flex; flex-wrap: wrap; gap: 6px 10px; }
 .nav a { padding: 10px 16px; border-radius: 999px; color: var(--muted); text-decoration: none; font-weight: 600; font-size: 15px; }
 .nav a:hover { background: var(--tint); color: var(--ink); }
@@ -252,7 +258,7 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
   .nav a { padding: 10px 12px; font-size: 14px; }
 }
 @media (max-width: 560px) {
-  .brand span { display: none; }
+  .brand span:not(.mark) { display: none; }
 }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
@@ -264,7 +270,7 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
 
 <header class="top">
   <div class="wrap">
-    <a class="brand" href="#inicio"><img src="foto.png" alt=""><span>Jibaro</span></a>
+    <a class="brand" href="#inicio"><span class="mark" aria-hidden="true">J</span><span>Jibaro</span></a>
     <nav class="nav" aria-label="Secciones">
       <a href="#perfil">Perfil</a>
       <a href="#experiencia">Experiencia</a>
