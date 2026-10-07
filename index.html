@@ -395,13 +395,13 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
           </div>
           <div class="row">
             <div class="row-main"><span class="mono">WhatsApp</span><span class="val">+507 6443-7573</span></div>
-            <a class="copy go" href="https://wa.me/50764437573?text=Hola%20Luis%2C%20vi%20tu%20p%C3%A1gina.">Escribir</a>
+            <a class="copy go" href="https://wa.me/50764437573?text=Hola%20Luis%2C%20vi%20tu%20p%C3%A1gina." target="_blank" rel="noopener noreferrer">Escribir</a>
           </div>
           <div class="row">
-            <div class="row-main"><span class="mono">Instagram</span><a class="val" href="https://www.instagram.com/jibarocards">@jibarocards</a></div>
+            <div class="row-main"><span class="mono">Instagram</span><a class="val" href="https://www.instagram.com/jibarocards" target="_blank" rel="noopener noreferrer">@jibarocards</a></div>
           </div>
           <div class="row">
-            <div class="row-main"><span class="mono">Behance</span><a class="val" href="https://www.behance.net/jibaroartz">behance.net/jibaroartz</a></div>
+            <div class="row-main"><span class="mono">Behance</span><a class="val" href="https://www.behance.net/jibaroartz" target="_blank" rel="noopener noreferrer">behance.net/jibaroartz</a></div>
           </div>
         </div>
       </div>
@@ -425,7 +425,7 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
       <h3 id="v-title"></h3>
       <p id="v-desc"></p>
       <div id="v-likes"></div>
-      <a class="btn btn-solid" id="v-link" href="#">Ver publicación</a>
+      <a class="btn btn-solid" id="v-link" href="#" target="_blank" rel="noopener noreferrer">Ver publicación</a>
     </div>
   </div>
 </dialog>
@@ -439,13 +439,13 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
   /* Para agregar una publicación: copia una línea, cambia el título, la imagen (ej. 'img/carta1.jpg') y el enlace.
      Para mostrar el contador de likes, agrega likes: 123 (el número que muestra Instagram). Sin ese campo, no se muestra. */
   var POSTS = [
-    { cat: 'hobby',  title: 'Venta récord: Rafael Mosquera', img: 'img/mosquera-record.jpg', link: 'https://www.instagram.com/p/DdqM5NLkYp7/', desc: 'Venta récord de $2,500 por la 1/1 autografiada con parche de debut en la MLS.' },
-    { cat: 'hobby',  title: 'Mira, papá, soy Cristiano', img: 'img/meme-soy-cristiano.jpg', fit: 'contain', bg: '#FEFEFC', link: 'https://www.instagram.com/p/DdS3mdzkUSP/', desc: 'Meme de Swaptty: Barbie y Cristiano Ronaldo.' },
-    { cat: 'hobby',  title: 'Extra Stickers: no los pegues', img: 'img/extra-stickers.jpg', link: 'https://www.instagram.com/p/DX5LiTqkQFn/', desc: 'Conoce los Extra Stickers de Panini: son para coleccionar.' },
-    { cat: 'hobby',  title: 'La tarjeta + fría', img: 'img/tarjeta-mas-fria.jpg', link: 'https://www.instagram.com/p/DXhNNookVB1/', desc: 'Nuevo récord: la tarjeta más fría se vende por $100.' },
-    { cat: 'hobby',  title: 'Joya panameña: Omar Valencia', img: 'img/omar-valencia.jpg', link: 'https://www.instagram.com/p/DW7ufPxDEJG/', desc: 'Topps le hace tarjeta rookie a Omar Valencia.' },
-    { cat: 'hobby',  title: 'El Bicho presente: sticker de CR7', img: 'img/sticker-cr7.jpg', link: 'https://www.instagram.com/p/DWUC9E7kWzz/', desc: 'Así es el sticker de CR7 en el álbum Panini 2026.' },
-    { cat: 'hobby',  title: 'Tarjeta de Blas Black Prizm 1/1', img: 'img/blas-black-prizm.jpg', link: 'https://www.instagram.com/p/DZcobcKlo2d/', desc: 'Récord histórico para Panamá: tarjeta Black Prizm 1/1 vendida por $1,800.' }
+    { cat: 'hobby',  title: 'Venta récord: Rafael Mosquera', likes: 158, img: 'img/mosquera-record.jpg', link: 'https://www.instagram.com/p/DdqM5NLkYp7/', desc: 'Venta récord de $2,500 por la 1/1 autografiada con parche de debut en la MLS.' },
+    { cat: 'hobby',  title: 'Mira, papá, soy Cristiano', likes: 13100, img: 'img/meme-soy-cristiano.jpg', fit: 'contain', bg: '#FEFEFC', link: 'https://www.instagram.com/p/DdS3mdzkUSP/', desc: 'Meme de Swaptty: Barbie y Cristiano Ronaldo.' },
+    { cat: 'hobby',  title: 'Extra Stickers: no los pegues', likes: 19500, img: 'img/extra-stickers.jpg', link: 'https://www.instagram.com/p/DX5LiTqkQFn/', desc: 'Conoce los Extra Stickers de Panini: son para coleccionar.' },
+    { cat: 'hobby',  title: 'La tarjeta + fría', likes: 60, img: 'img/tarjeta-mas-fria.jpg', link: 'https://www.instagram.com/p/DXhNNookVB1/', desc: 'Nuevo récord: la tarjeta más fría se vende por $100.' },
+    { cat: 'hobby',  title: 'Joya panameña: Omar Valencia', likes: 385, img: 'img/omar-valencia.jpg', link: 'https://www.instagram.com/p/DW7ufPxDEJG/', desc: 'Topps le hace tarjeta rookie a Omar Valencia.' },
+    { cat: 'hobby',  title: 'El Bicho presente: sticker de CR7', likes: 49700, img: 'img/sticker-cr7.jpg', link: 'https://www.instagram.com/p/DWUC9E7kWzz/', desc: 'Así es el sticker de CR7 en el álbum Panini 2026.' },
+    { cat: 'hobby',  title: 'Tarjeta de Blas Black Prizm 1/1', likes: 504, img: 'img/blas-black-prizm.jpg', link: 'https://www.instagram.com/p/DZcobcKlo2d/', desc: 'Récord histórico para Panamá: tarjeta Black Prizm 1/1 vendida por $1,800.' }
   ];
 
   var ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.2" cy="6.8" r="0.8" fill="currentColor"></circle></svg>';
@@ -461,7 +461,7 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
   var HEART = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 21s-7.5-4.6-9.6-9.2C.9 8.5 2.6 5 6 5c2.1 0 3.4 1.1 4.2 2.3h3.6C14.6 6.1 15.9 5 18 5c3.4 0 5.1 3.5 3.6 6.8C19.5 16.4 12 21 12 21z"></path></svg>';
   function likes(p) {
     if (typeof p.likes !== 'number') { return ''; }
-    return '<span class="likes">' + HEART + '<span>' + p.likes.toLocaleString('es') + '</span><span class="sr">likes</span></span>';
+    return '<span class="likes">' + HEART + '<span>' + String(p.likes).replace(/\B(?=(\d{3})+(?!\d))/g, ',') + '</span><span class="sr">likes</span></span>';
   }
 
   function render() {
