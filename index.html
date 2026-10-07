@@ -1,0 +1,516 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Luis Quintero</title>
+<meta name="description" content="Luis Quintero: diseñador, gerente de tiendas y experto en coleccionismo de tarjetas. Hoja de vida y portafolio.">
+<meta property="og:title" content="Luis Quintero">
+<meta property="og:description" content="Diseñador, gerente de tiendas y experto en coleccionismo. Hoja de vida y portafolio.">
+<meta property="og:type" content="website">
+<link rel="icon" href="foto.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap">
+<style>
+/* Concepto: hoja de vida como vitrina de coleccionista, con mucho aire. Fondo lavanda tenue,
+   tinta morada oscura y acento morado de marca. El portafolio se muestra como cartas (proporción 5:7). */
+:root {
+  --bg: #F5F3FC;
+  --surface: #FFFFFF;
+  --ink: #140B33;
+  --muted: #55507A;
+  --line: #E2DDF3;
+  --accent: #6B2CF5;
+  --accent-ink: #FFFFFF;
+  --accent-text: #5A1FE0;
+  --tint: #EFE8FF;
+  --deep: #1B0B4A;
+  --deep-ink: #FFFFFF;
+  --deep-muted: #CDBFF5;
+  --f-body: 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --f-mono: 'DM Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace;
+  --gutter: clamp(28px, 7vw, 112px);
+  --space-section: clamp(88px, 12vw, 152px);
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0F0A24;
+    --surface: #181036;
+    --ink: #F2EEFF;
+    --muted: #B3AAD6;
+    --line: #2C2257;
+    --accent: #9A74FF;
+    --accent-ink: #140B33;
+    --accent-text: #B79DFF;
+    --tint: #261A55;
+    --deep: #090518;
+    --deep-ink: #F2EEFF;
+    --deep-muted: #B3AAD6;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0F0A24;
+  --surface: #181036;
+  --ink: #F2EEFF;
+  --muted: #B3AAD6;
+  --line: #2C2257;
+  --accent: #9A74FF;
+  --accent-ink: #140B33;
+  --accent-text: #B79DFF;
+  --tint: #261A55;
+  --deep: #090518;
+  --deep-ink: #F2EEFF;
+  --deep-muted: #B3AAD6;
+  color-scheme: dark;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--f-body);
+  font-size: 18px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+img { max-width: 100%; display: block; }
+a { color: var(--accent-text); }
+h1, h2, h3, p, ul, ol { margin: 0; padding: 0; }
+ul, ol { list-style: none; }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 6px; }
+
+.wrap { width: 100%; max-width: 1280px; margin-inline: auto; padding-inline: var(--gutter); }
+section { padding-block: var(--space-section) 0; scroll-margin-top: 64px; }
+
+.mono { font-family: var(--f-mono); font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; }
+h2 { font-size: clamp(32px, 5vw, 48px); line-height: 1.1; font-weight: 800; letter-spacing: -0.025em; text-wrap: balance; }
+
+/* Cabecera */
+.top {
+  position: sticky;
+  top: env(safe-area-inset-top, 0px);
+  z-index: 10;
+  background: var(--bg);
+  border-bottom: 1px solid var(--line);
+}
+.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding-block: 16px; }
+.brand { display: flex; align-items: center; gap: 14px; font-weight: 800; font-size: 18px; color: var(--ink); text-decoration: none; letter-spacing: -0.01em; }
+.brand img { width: 44px; height: 44px; border-radius: 13px; }
+.nav { display: flex; flex-wrap: wrap; gap: 6px 10px; }
+.nav a { padding: 10px 16px; border-radius: 999px; color: var(--muted); text-decoration: none; font-weight: 600; font-size: 15px; }
+.nav a:hover { background: var(--tint); color: var(--ink); }
+
+/* Botones */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  padding: 16px 32px; min-height: 52px; border-radius: 999px; border: 2px solid var(--accent);
+  font: 700 16px/1 var(--f-body); text-decoration: none; cursor: pointer;
+}
+.btn-solid { background: var(--accent); color: var(--accent-ink); }
+.btn-solid:hover { filter: brightness(1.08); }
+.btn-line { background: transparent; color: var(--accent-text); }
+.btn-line:hover { background: var(--tint); }
+
+/* Hero */
+.hero { padding-block: clamp(64px, 9vw, 120px) 0; }
+.hero-grid { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr); gap: clamp(48px, 8vw, 112px); align-items: center; }
+.hero-text { display: flex; flex-direction: column; gap: 28px; min-width: 0; }
+.kicker { color: var(--accent-text); font-weight: 500; }
+h1 { font-size: clamp(46px, 8vw, 84px); line-height: 1; font-weight: 800; letter-spacing: -0.04em; text-wrap: balance; }
+.roles { font-size: clamp(19px, 2.4vw, 23px); font-weight: 600; color: var(--muted); }
+.pitch { font-size: clamp(20px, 2.4vw, 24px); line-height: 1.5; max-width: 30ch; }
+.cta { display: flex; flex-wrap: wrap; gap: 16px; padding-top: 12px; }
+.photo { justify-self: center; width: 100%; max-width: 420px; }
+.photo img { width: 100%; height: auto; aspect-ratio: 1 / 1; }
+
+/* Franja IA */
+.ai-band { background: var(--deep); color: var(--deep-ink); margin-top: var(--space-section); padding-block: 36px; }
+.ai-band .wrap { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 20px 40px; }
+.ai-band p { font-size: 20px; font-weight: 700; }
+.chips { display: flex; flex-wrap: wrap; gap: 12px; }
+.chip { padding: 10px 20px; border-radius: 999px; background: var(--tint); color: var(--accent-text); font-weight: 600; font-size: 15px; }
+.chip-main { background: var(--accent); color: var(--accent-ink); font-weight: 700; }
+
+/* Perfil */
+.about-grid { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr); gap: clamp(48px, 8vw, 112px); margin-top: 48px; align-items: start; }
+.about-grid > * { min-width: 0; }
+.lead { font-size: clamp(20px, 2.4vw, 24px); line-height: 1.6; max-width: 34ch; }
+.side { display: flex; flex-direction: column; gap: 48px; }
+.side h3 { font-size: 13px; margin-bottom: 20px; color: var(--muted); }
+.study { padding-block: 20px; border-top: 1px solid var(--line); }
+.study:last-child { border-bottom: 1px solid var(--line); }
+.study strong { display: block; font-size: 19px; line-height: 1.35; }
+.study span { color: var(--muted); font-size: 15px; }
+
+/* Experiencia */
+.jobs { margin-top: 48px; border-bottom: 1px solid var(--line); }
+.job { display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 8px 40px; padding-block: 36px; border-top: 1px solid var(--line); }
+.job .when { color: var(--muted); padding-top: 6px; }
+.job.now .when { color: var(--accent-text); font-weight: 500; }
+.job h3 { font-size: 23px; line-height: 1.25; font-weight: 800; letter-spacing: -0.01em; }
+.job .org { color: var(--accent-text); font-weight: 700; }
+.job p { margin-top: 8px; color: var(--muted); }
+.job.now p { color: var(--ink); }
+
+/* Habilidades */
+.skills { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 48px clamp(48px, 8vw, 112px); margin-top: 48px; }
+.skills h3 { font-size: 13px; margin-bottom: 20px; color: var(--muted); }
+
+/* Portafolio */
+.port-head { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 28px 40px; }
+.port-head p { color: var(--muted); margin-top: 14px; }
+.tabs { display: flex; flex-wrap: wrap; gap: 12px; }
+.tab {
+  padding: 12px 22px; min-height: 48px; border-radius: 999px; border: 2px solid var(--line);
+  background: var(--surface); color: var(--ink); font: 600 15px/1 var(--f-body); cursor: pointer;
+}
+.tab:hover { border-color: var(--accent); }
+.tab[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 40px 32px; margin-top: 56px; }
+.card { padding: 0; border: 0; background: none; font: inherit; color: inherit; text-align: left; cursor: pointer; display: flex; flex-direction: column; gap: 16px; min-width: 0; }
+.face {
+  position: relative; aspect-ratio: 5 / 7; width: 100%; border-radius: 18px; overflow: hidden;
+  background: var(--tint); border: 1px solid var(--line);
+  display: flex; align-items: center; justify-content: center;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.face img { width: 100%; height: 100%; object-fit: cover; }
+.face::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(115deg, transparent 30%, rgba(255, 255, 255, 0.38) 50%, transparent 70%);
+  transform: translateX(-120%); transition: transform 0.6s ease;
+}
+.card:hover .face, .card:focus-visible .face { transform: translateY(-6px) rotate(-1deg); box-shadow: 0 18px 36px rgba(60, 30, 140, 0.22); }
+.card:hover .face::after, .card:focus-visible .face::after { transform: translateX(120%); }
+.ph { display: flex; flex-direction: column; align-items: center; gap: 14px; color: var(--accent-text); padding: 20px; text-align: center; }
+.ph svg { width: 48px; height: 48px; }
+.ph span { font-size: 14px; font-weight: 600; color: var(--muted); }
+.card .name { font-weight: 700; font-size: 17px; line-height: 1.3; }
+.card .tag { color: var(--muted); font-size: 12px; }
+
+.viewer { width: min(92vw, 860px); max-height: 90vh; padding: 0; border: 0; border-radius: 28px; background: var(--surface); color: var(--ink); overflow: auto; }
+.viewer::backdrop { background: rgba(10, 5, 30, 0.65); }
+.viewer-in { display: grid; grid-template-columns: minmax(0, 300px) minmax(0, 1fr); gap: 40px; padding: 48px; align-items: center; }
+.viewer .face { max-width: 300px; }
+.viewer .face:hover { transform: none; box-shadow: none; }
+.viewer-text { display: flex; flex-direction: column; gap: 18px; align-items: flex-start; min-width: 0; }
+.viewer-text h3 { font-size: 30px; line-height: 1.15; font-weight: 800; letter-spacing: -0.02em; }
+.viewer-text p { color: var(--muted); }
+.close { position: absolute; top: 16px; right: 16px; width: 48px; height: 48px; border-radius: 50%; border: 0; background: var(--tint); color: var(--ink); font-size: 24px; line-height: 1; cursor: pointer; }
+.close:hover { background: var(--accent); color: var(--accent-ink); }
+
+/* Contacto */
+.contact { background: var(--deep); color: var(--deep-ink); border-radius: 36px; padding: clamp(36px, 6vw, 80px); display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); gap: clamp(36px, 6vw, 80px); align-items: center; }
+.contact > * { min-width: 0; }
+.contact h2 { color: var(--deep-ink); }
+.contact .sub { color: var(--deep-muted); margin-top: 16px; }
+.rows { display: flex; flex-direction: column; }
+.row { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 20px; padding-block: 22px; border-top: 1px solid rgba(255, 255, 255, 0.16); }
+.row:last-child { border-bottom: 1px solid rgba(255, 255, 255, 0.16); }
+.row .mono { color: var(--deep-muted); font-size: 12px; }
+.row .val { font-size: 19px; font-weight: 600; overflow-wrap: anywhere; }
+.row a { color: var(--deep-ink); }
+.copy { padding: 10px 18px; min-height: 44px; border-radius: 999px; border: 1.5px solid rgba(255, 255, 255, 0.4); background: transparent; color: var(--deep-ink); font: 600 14px/1 var(--f-body); cursor: pointer; }
+.copy:hover { background: rgba(255, 255, 255, 0.12); }
+.row-main { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+
+footer { padding-block: 72px 56px; color: var(--muted); font-size: 14px; }
+footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; }
+
+@media (max-width: 860px) {
+  .hero-grid, .about-grid, .contact, .skills { grid-template-columns: minmax(0, 1fr); }
+  .hero-grid { gap: 48px; }
+  .photo { order: -1; max-width: 260px; justify-self: start; }
+  .job { grid-template-columns: minmax(0, 1fr); gap: 8px; padding-block: 28px; }
+  .viewer-in { grid-template-columns: minmax(0, 1fr); padding: 32px 28px; gap: 28px; }
+  .viewer .face { max-width: 240px; }
+  .nav a { padding: 10px 12px; font-size: 14px; }
+}
+@media (max-width: 560px) {
+  .brand span { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .face, .face::after { transition: none; }
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#inicio"><img src="foto.png" alt=""><span>Luis Quintero</span></a>
+    <nav class="nav" aria-label="Secciones">
+      <a href="#perfil">Perfil</a>
+      <a href="#experiencia">Experiencia</a>
+      <a href="#portafolio">Portafolio</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+  </div>
+</header>
+
+<main id="inicio">
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div class="hero-text">
+        <p class="mono kicker">Panamá</p>
+        <h1>Luis Quintero</h1>
+        <p class="roles">Diseñador · Gerente de tiendas · Experto en coleccionismo</p>
+        <p class="pitch">15 años creando marcas, contenido y comunidades.</p>
+        <div class="cta">
+          <a class="btn btn-solid" href="#portafolio">Ver portafolio</a>
+          <a class="btn btn-line" href="#contacto">Contacto</a>
+        </div>
+      </div>
+      <div class="photo">
+        <img src="foto.png" alt="Retrato en blanco y negro de Luis Quintero sonriendo, sobre fondo morado">
+      </div>
+    </div>
+  </section>
+
+  <div class="ai-band">
+    <div class="wrap">
+      <p>Domino herramientas de IA</p>
+      <div class="chips">
+        <span class="chip chip-main">Claude</span>
+        <span class="chip chip-main">Gemini</span>
+        <span class="chip chip-main">ChatGPT</span>
+      </div>
+    </div>
+  </div>
+
+  <section id="perfil">
+    <div class="wrap">
+      <h2>Perfil</h2>
+      <div class="about-grid">
+        <p class="lead">Creativo, innovador y líder. Combino diseño, contenido y estrategia de marca para hacer crecer comunidades. Nunca doy menos del 100%.</p>
+        <div class="side">
+          <div>
+            <h3 class="mono">Estudios</h3>
+            <div class="study"><strong>Licenciatura en Publicidad con Diseño Gráfico</strong><span>UIP · 2014</span></div>
+            <div class="study"><strong>Posgrado en Docencia Superior</strong><span>UIP · 2018</span></div>
+          </div>
+          <div>
+            <h3 class="mono">Especialidad</h3>
+            <div class="chips">
+              <span class="chip">Coleccionismo de tarjetas</span>
+              <span class="chip">Cultura hobby</span>
+              <span class="chip">Comunidades</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="experiencia">
+    <div class="wrap">
+      <h2>Experiencia</h2>
+      <ol class="jobs">
+        <li class="job now">
+          <span class="when mono">2026 – Actualidad</span>
+          <div><h3>Gerente de tiendas <span class="org">· Swaptty</span></h3><p>Experto en coleccionismo de tarjetas. Marketing e innovación.</p></div>
+        </li>
+        <li class="job">
+          <span class="when mono">2025 – 2026</span>
+          <div><h3>Alto Imports</h3><p>Diseñador de ropa y zapatillas deportivas.</p></div>
+        </li>
+        <li class="job">
+          <span class="when mono">2022 – 2025</span>
+          <div><h3>Grupo Azrak</h3><p>Creativo y creador de contenido.</p></div>
+        </li>
+        <li class="job">
+          <span class="when mono">2014 – 2022</span>
+          <div><h3>Hosanna Visión</h3><p>Creador de contenidos digitales.</p></div>
+        </li>
+        <li class="job">
+          <span class="when mono">2011 – 2014</span>
+          <div><h3>FCB Markez</h3><p>Diseñador gráfico en agencia de publicidad.</p></div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="habilidades">
+    <div class="wrap">
+      <h2>Habilidades</h2>
+      <div class="skills">
+        <div>
+          <h3 class="mono">Inteligencia artificial</h3>
+          <div class="chips">
+            <span class="chip chip-main">Claude</span>
+            <span class="chip chip-main">Gemini</span>
+            <span class="chip chip-main">ChatGPT</span>
+          </div>
+        </div>
+        <div>
+          <h3 class="mono">Diseño, foto y video</h3>
+          <div class="chips">
+            <span class="chip">Photoshop</span>
+            <span class="chip">Illustrator</span>
+            <span class="chip">Premiere Pro</span>
+            <span class="chip">Lightroom</span>
+            <span class="chip">After Effects</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="portafolio">
+    <div class="wrap">
+      <div class="port-head">
+        <div>
+          <h2>Portafolio</h2>
+          <p>Toca una carta para ver la publicación.</p>
+        </div>
+        <div class="tabs" role="group" aria-label="Filtrar portafolio">
+          <button class="tab" type="button" data-filter="todo" aria-pressed="true">Todo</button>
+          <button class="tab" type="button" data-filter="hobby" aria-pressed="false">Hobby</button>
+          <button class="tab" type="button" data-filter="diseno" aria-pressed="false">Diseño</button>
+          <button class="tab" type="button" data-filter="foto" aria-pressed="false">Foto y video</button>
+        </div>
+      </div>
+      <div class="grid" id="grid"></div>
+    </div>
+  </section>
+
+  <section id="contacto">
+    <div class="wrap">
+      <div class="contact">
+        <div>
+          <h2>Hablemos</h2>
+          <p class="sub">Escríbeme o llámame.</p>
+        </div>
+        <div class="rows">
+          <div class="row">
+            <div class="row-main"><span class="mono">Correo</span><span class="val">jibaroartz@gmail.com</span></div>
+            <button class="copy" type="button" data-copy="jibaroartz@gmail.com">Copiar</button>
+          </div>
+          <div class="row">
+            <div class="row-main"><span class="mono">Teléfono</span><span class="val">+507 6443-7573</span></div>
+            <button class="copy" type="button" data-copy="+507 6443-7573">Copiar</button>
+          </div>
+          <div class="row">
+            <div class="row-main"><span class="mono">Instagram</span><a class="val" href="https://www.instagram.com/jibarocards">@jibarocards</a></div>
+          </div>
+          <div class="row">
+            <div class="row-main"><span class="mono">Behance</span><a class="val" href="https://www.behance.net/jibaroartz">behance.net/jibaroartz</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Luis Quintero</span>
+    <span>Panamá</span>
+  </div>
+</footer>
+
+<dialog class="viewer" id="viewer" aria-labelledby="v-title">
+  <button class="close" type="button" id="v-close" aria-label="Cerrar">×</button>
+  <div class="viewer-in">
+    <div class="face" id="v-face"></div>
+    <div class="viewer-text">
+      <span class="mono kicker" id="v-tag"></span>
+      <h3 id="v-title"></h3>
+      <p id="v-desc"></p>
+      <a class="btn btn-solid" id="v-link" href="#">Ver publicación</a>
+    </div>
+  </div>
+</dialog>
+
+<script>
+(function () {
+  var IG = 'https://www.instagram.com/jibarocards';
+  var BE = 'https://www.behance.net/jibaroartz';
+  var TAGS = { hobby: 'Hobby · Instagram', diseno: 'Diseño · Behance', foto: 'Foto y video · Behance' };
+
+  /* Para agregar una publicación: copia una línea, cambia el título, la imagen (ej. 'img/carta1.jpg') y el enlace. */
+  var POSTS = [
+    { cat: 'hobby',  title: 'Publicación de hobby 1', img: '', link: IG, desc: 'Contenido de hobby en Instagram.' },
+    { cat: 'hobby',  title: 'Publicación de hobby 2', img: '', link: IG, desc: 'Contenido de hobby en Instagram.' },
+    { cat: 'hobby',  title: 'Publicación de hobby 3', img: '', link: IG, desc: 'Contenido de hobby en Instagram.' },
+    { cat: 'hobby',  title: 'Publicación de hobby 4', img: '', link: IG, desc: 'Contenido de hobby en Instagram.' },
+    { cat: 'diseno', title: 'Proyectos de diseño', img: '', link: BE, desc: 'Mis proyectos de diseño en Behance.' },
+    { cat: 'foto',   title: 'Fotografía y video', img: '', link: BE, desc: 'Mi fotografía y video en Behance.' }
+  ];
+
+  var ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.2" cy="6.8" r="0.8" fill="currentColor"></circle></svg>';
+  var grid = document.getElementById('grid');
+  var viewer = document.getElementById('viewer');
+  var current = 'todo';
+
+  function face(p) {
+    if (p.img) { return '<img src="' + p.img + '" alt="' + p.title + '">'; }
+    return '<div class="ph">' + ICON + '<span>' + (p.cat === 'hobby' ? 'Hobby' : p.cat === 'diseno' ? 'Diseño' : 'Foto y video') + '</span></div>';
+  }
+
+  function render() {
+    var html = '';
+    POSTS.forEach(function (p, i) {
+      if (current !== 'todo' && p.cat !== current) { return; }
+      html += '<button class="card" type="button" data-i="' + i + '">' +
+        '<span class="face">' + face(p) + '</span>' +
+        '<span class="name">' + p.title + '</span>' +
+        '<span class="tag mono">' + TAGS[p.cat] + '</span></button>';
+    });
+    grid.innerHTML = html;
+  }
+
+  function openPost(i) {
+    var p = POSTS[i];
+    document.getElementById('v-face').innerHTML = face(p);
+    document.getElementById('v-tag').textContent = TAGS[p.cat];
+    document.getElementById('v-title').textContent = p.title;
+    document.getElementById('v-desc').textContent = p.desc;
+    var a = document.getElementById('v-link');
+    a.href = p.link;
+    a.textContent = p.cat === 'hobby' ? 'Ver en Instagram' : 'Ver en Behance';
+    try { viewer.showModal(); } catch (e) { viewer.setAttribute('open', ''); }
+  }
+
+  grid.addEventListener('click', function (e) {
+    var b = e.target.closest('.card');
+    if (b) { openPost(Number(b.getAttribute('data-i'))); }
+  });
+  document.getElementById('v-close').addEventListener('click', function () { viewer.close(); });
+  viewer.addEventListener('click', function (e) { if (e.target === viewer) { viewer.close(); } });
+
+  document.querySelectorAll('.tab').forEach(function (t) {
+    t.addEventListener('click', function () {
+      current = t.getAttribute('data-filter');
+      document.querySelectorAll('.tab').forEach(function (x) { x.setAttribute('aria-pressed', x === t ? 'true' : 'false'); });
+      render();
+    });
+  });
+
+  document.querySelectorAll('.copy').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var text = b.getAttribute('data-copy');
+      var done = function () { b.textContent = 'Copiado'; setTimeout(function () { b.textContent = 'Copiar'; }, 1800); };
+      try {
+        navigator.clipboard.writeText(text).then(done, function () { selectText(b); });
+      } catch (e) { selectText(b); }
+    });
+  });
+  function selectText(b) {
+    var el = b.previousElementSibling.querySelector('.val');
+    var r = document.createRange(); r.selectNodeContents(el);
+    var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+    b.textContent = 'Seleccionado';
+  }
+
+  render();
+})();
+</script>
+</body>
+</html>
